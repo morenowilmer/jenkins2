@@ -1,9 +1,15 @@
 pipeline {
   agent any
   stages {
-    stage('') {
+    stage('Buid') {
       steps {
-        echo 'Este es un mensaje de prueba'
+        sh 'clean package'
+      }
+    }
+
+    stage('war') {
+      steps {
+        archiveArtifacts '**/*.war'
       }
     }
 
