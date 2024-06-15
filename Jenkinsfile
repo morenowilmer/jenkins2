@@ -20,8 +20,8 @@ pipeline {
     }
 
     stage('Sonar') {
-      steps {
-        bat(script: 'mvn clean verify sonar:sonar -Dsonar.projectKey=proyecto-jenkins -Dsonar.projectName=\'proyecto-jenkins\' -Dsonar.language=java -Dsonar.login -Dsonar.password=admin123456789 -Dsonar.sourceEncodign=UTF-8', returnStatus: true)
+      withSonarQubeEnv() {
+        bat "mvn clean verify sonar:sonar -Dsonar.projectKey=proyecto-jenkins -Dsonar.projectName='proyecto-jenkins'"
       }
     }
 
