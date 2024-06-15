@@ -20,8 +20,8 @@ pipeline {
     }
 
     stage('Sonar') {
-      steps () {
-        bat "mvn clean verify sonar:sonar -Dsonar.projectKey=proyecto-jenkins -Dsonar.projectName='proyecto-jenkins' -Dsonar.language=java -Dsonar.login -Dsonar.password=admin123456789 -Dsonar.sourceEncodign=UTF-8"
+      steps {
+        bat 'mvn clean verify sonar:sonar \\   -Dsonar.projectKey=proyecto-jenkins \\   -Dsonar.projectName=\'proyecto-jenkins\' \\   -Dsonar.host.url=http://localhost:9090 \\   -Dsonar.token=sqp_cf49272857244404388a9c41ce9f89c27587a647'
       }
     }
 
