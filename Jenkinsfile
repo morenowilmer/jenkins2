@@ -13,5 +13,11 @@ pipeline {
       }
     }
 
+    stage('Copy War') {
+      steps {
+        bat 'copy "..\\Pipeline_jenkins2\\target\\jenkins2.war" D:\\Programas\\apache-tomcat-9.0.88\\webapps\\jenkins2-dev.war'
+      }
+    }
+
   }
 }
