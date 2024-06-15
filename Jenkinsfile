@@ -21,7 +21,7 @@ pipeline {
 
     stage('Sonar') {
       withSonarQubeEnv() {
-        bat "mvn clean verify sonar:sonar -Dsonar.projectKey=proyecto-jenkins -Dsonar.projectName='proyecto-jenkins'"
+        sh "mvn clean verify sonar:sonar -Dsonar.projectKey=proyecto-jenkins -Dsonar.projectName='proyecto-jenkins'"
       }
     }
 
