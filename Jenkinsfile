@@ -19,11 +19,5 @@ pipeline {
       }
     }
 
-    stage('Start tomcat') {
-      steps {
-        bat 'D:\\Programas\\apache-tomcat-9.0.88\\bin\\startup.bat'
-      }
-    }
-
   }
 }
