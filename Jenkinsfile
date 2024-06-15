@@ -20,25 +20,28 @@ pipeline {
     }
 
     stage('Stop tomcat') {
-      parallel {
-        stage('Stop tomcat') {
-          steps {
-            bat 'D:\\Programas\\apache-tomcat-9.0.88\\bin\\shutdown.bat'
-          }
-        }
-
-        stage('prueba') {
-          steps {
-            echo 'Mensaje de prueba'
-          }
-        }
-
+      steps {
+        bat 'D:\\Programas\\apache-tomcat-9.0.88\\bin\\shutdown.bat'
       }
     }
 
-    stage('Start tomcat') {
-      steps {
-        bat 'D:\\Programas\\apache-tomcat-9.0.88\\bin\\startup.bat'
+    stage('Catch Stop tomcat') {
+      parallel {
+        stage('Catch Stop tomcat') {
+          steps {
+            warnError(message: 'Tamcot no esta activo', catchInterruptions: true) {
+              bat 'D:\\Programas\\apache-tomcat-9.0.88\\bin\\startup.bat'
+            }
+
+          }
+        }
+
+        stage('Imprimir') {
+          steps {
+            echo 'Prueba tomcat'
+          }
+        }
+
       }
     }
 
