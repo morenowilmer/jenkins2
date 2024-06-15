@@ -19,11 +19,5 @@ pipeline {
       }
     }
 
-    stage('SonarQube Analysis') {
-      withSonarQubeEnv() {
-        bat "mvn clean verify sonar:sonar -Dsonar.projectKey=proyecto-jenkins -Dsonar.projectName='proyecto-jenkins'"
-      }
-    }
-
   }
 }
