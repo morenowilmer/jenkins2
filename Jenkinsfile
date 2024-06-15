@@ -19,5 +19,11 @@ pipeline {
       }
     }
 
+    stage('Stop tomcat') {
+      steps {
+        bat 'D:\\Programas\\apache-tomcat-9.0.88\\bin\\shutdown.bat'
+      }
+    }
+
   }
 }
