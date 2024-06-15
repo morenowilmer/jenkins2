@@ -21,10 +21,7 @@ pipeline {
 
     stage('Sonar') {
       steps {
-        withSonarQubeEnv('sonarqube') {
-          bat(script: 'mvn clean verify sonar:sonar -Dsonar.projectKey=proyecto-jenkins -Dsonar.projectName=\'proyecto-jenkins\'', returnStatus: true, returnStdout: true)
-        }
-
+        bat(script: 'mvn clean verify sonar:sonar -Dsonar.projectKey=proyecto-jenkins -Dsonar.projectName=\'proyecto-jenkins\' -Dsonar.java.jdkHome=\'C:\\Program Files\\Java\\jdk-1.8\\bin\\java.exe\'', returnStatus: true, returnStdout: true)
       }
     }
 
